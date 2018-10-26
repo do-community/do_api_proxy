@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>DO API example</title>
+    <!-- Load vue.js and axios (for fetching data) from CDNs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+      /* Use Flexbox to display the content */
+      #app {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      /* Style for each card */
+      .card {
+        border: 1px solid #ddd;
+        box-shadow: 5px 5px 5px #ddd;
+        flex: 1 1 auto;
+        margin: 5px;
+        padding: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- The view -->
+    <div id="app">
+      <div class="card" v-for="droplet in droplets">
+        <h2>{{ droplet.name }}</h2>
+      </div>
+    </div>
+
+    <script>
+      /* Application logic.
+      Create the app and fetch the data, populating data.
+
+      */
+
+      var url = 'http://localhost:3000/v2/droplets?page=1&per_page=10';
+      new Vue({
+        el: '#app',
+        data: {
+          droplets: []
+        },
+        mounted () {
+          axios
+            .get(url)
+            .then(response => (this.droplets = response.data.droplets))
+        }
+      })
+    </script>
+
+  </body>
+</html>
