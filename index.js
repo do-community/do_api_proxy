@@ -27,4 +27,4 @@ app.use('/', DOProxy)
 // fire up the server
 http.createServer(app).listen(3000)
 
-console.log('Server istening on port 3000')
+console.log('Server listening on port 3000')
