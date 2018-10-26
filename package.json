@@ -1,0 +1,16 @@
+{
+  "name": "do_api_proxy",
+  "version": "1.0.0",
+  "description": "A Node.JS proxy for making requests to the DigitalOcean API from client-side apps",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian P. Hogan <brianhogan@napcs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.6.6",
+    "http-proxy-middleware": "^0.19.0"
+  }
+}
